@@ -93,5 +93,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="VisualEntries\VisualEntries.csproj">
+      <Project>{D57CD4E7-53E0-4D24-A90C-1EF8795A2F8D}</Project>
+      <Name>VisualEntries</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
