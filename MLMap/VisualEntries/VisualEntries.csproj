@@ -45,12 +45,19 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HouseEntry.xaml.cs">
+      <DependentUpon>HouseEntry.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LayerEntry.xaml.cs">
       <DependentUpon>LayerEntry.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="HouseEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LayerEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

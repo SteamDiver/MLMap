@@ -99,5 +99,15 @@
       <Name>VisualEntries</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\Park.png" />
+    <Resource Include="Res\River.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\Road.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\House.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

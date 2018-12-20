@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,11 +21,34 @@ namespace VisualEntries
     /// </summary>
     public partial class LayerEntry : UserControl
     {
-        public string Caption { get; set; }
-        public bool Visible { get; set; }
+        private bool _visible = true;
+        public string LayerName { get; set; }
+        public List<UserControl> Children { get; set; }
+
+        public bool Visible
+        {
+            get => _visible;
+            set
+            {
+                _visible = value;
+                foreach (var control in Children)
+                {
+                    control.Visibility = value ? Visibility.Visible : Visibility.Hidden;
+                }
+            }
+        }
+
+        public LayerEntry(string name)
+        {
+            InitializeComponent();
+            LayerName = name;
+            DataContext = this;
+        }
+
         public LayerEntry()
         {
             InitializeComponent();
+            DataContext = this;
         }
     }
 }

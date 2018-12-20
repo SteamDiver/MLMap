@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VisualEntries;
 
 namespace MLMap
 {
@@ -23,6 +24,12 @@ namespace MLMap
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void AddLayerBtnClick(object sender, RoutedEventArgs e)
+        {
+            var layer = new LayerEntry($"Layer {LayersLb.Items.Count}");
+            LayersLb.Items.Add(layer);
         }
     }
 }

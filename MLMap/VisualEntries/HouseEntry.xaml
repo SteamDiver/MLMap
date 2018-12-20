@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="VisualEntries.HouseEntry"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VisualEntries"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" Height="128" Width="389.406" x:Name="UserControl">
+    <Grid Background="Bisque">
+
+        <Label Grid.Column="0" FontSize="72" Content="TEST" Margin="129,0,10.2,-0.4"/>
+        <Thumb Name="myThumb" Canvas.Left="80" Canvas.Top="80" Background="Blue" 
+               Width="20" Height="20" DragDelta="onDragDelta" 
+               DragStarted="onDragStarted" DragCompleted="onDragCompleted" Grid.Column="1" Margin="0,0,10,9.6" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+        />
+    </Grid>
+</UserControl>
