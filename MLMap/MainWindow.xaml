@@ -43,8 +43,8 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <ListBox x:Name="LayersLb" Margin="10,10,9.6,28.6" BorderThickness="0" Grid.ColumnSpan="2"/>
-                <Button Content="Add" Margin="0,0,96.6,-0.4" Grid.ColumnSpan="2" Grid.Column="0" Click="AddLayerBtnClick" Height="24" VerticalAlignment="Bottom"></Button>
-                <Button Content="Delete" Margin="0.2,0,-0.4,-0.4" Grid.Column="1" Height="24" VerticalAlignment="Bottom"/>
+                <Button Content="Add" Grid.Column="0" Click="AddLayerBtnClick" Height="24" VerticalAlignment="Bottom"/>
+                <Button Content="Delete" Grid.Column="1" Height="24" VerticalAlignment="Bottom" Click="DeleteLayerBtnClick"/>
             </Grid>
         </GroupBox>
         <Canvas x:Name="ContentCanvas" Grid.Column="0" Margin="10,71,10,10"/>

@@ -23,7 +23,7 @@ namespace VisualEntries
     {
         private bool _visible = true;
         public string LayerName { get; set; }
-        public List<UserControl> Children { get; set; }
+        public List<UserControl> Children { get; set; } = new List<UserControl>();
 
         public bool Visible
         {

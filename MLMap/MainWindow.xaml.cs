@@ -34,7 +34,12 @@ namespace MLMap
 
         private void AddElement(UserControl element)
         {
-            ContentCanvas.Children.Add(element);
+            var layer = LayersLb.SelectedItem as LayerEntry;
+            if (layer != null)
+            {
+                layer.Children.Add(element);
+                ContentCanvas.Children.Add(element);
+            }
         }
 
         private void AddRoad(object sender, RoutedEventArgs e)
@@ -59,6 +64,17 @@ namespace MLMap
         {
             var park = new ParkEntry();
             AddElement(park);
+        }
+
+        private void DeleteLayerBtnClick(object sender, RoutedEventArgs e)
+        {
+            foreach (var control in ((LayerEntry)LayersLb.SelectedItem).Children)
+            {
+                var parent = VisualTreeHelper.GetParent(control) as Canvas;
+                parent?.Children.Remove(control);
+                LayersLb.Items.Remove(LayersLb.SelectedItem);
+            }
+            
         }
     }
 }
