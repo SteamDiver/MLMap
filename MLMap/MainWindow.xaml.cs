@@ -31,5 +31,34 @@ namespace MLMap
             var layer = new LayerEntry($"Layer {LayersLb.Items.Count}");
             LayersLb.Items.Add(layer);
         }
+
+        private void AddElement(UserControl element)
+        {
+            ContentCanvas.Children.Add(element);
+        }
+
+        private void AddRoad(object sender, RoutedEventArgs e)
+        {
+            var road = new RoadEntry();
+            AddElement(road);
+        }
+
+        private void AddHouse(object sender, RoutedEventArgs e)
+        {
+            var house = new HouseEntry();
+            AddElement(house);
+        }
+
+        private void AddRiver(object sender, RoutedEventArgs e)
+        {
+            var river = new RiverEntry();
+            AddElement(river);
+        }
+
+        private void AddPark(object sender, RoutedEventArgs e)
+        {
+            var park = new ParkEntry();
+            AddElement(park);
+        }
     }
 }

@@ -3,7 +3,7 @@
                     xmlns:s="clr-namespace:DiagramDesigner">
 
   <ControlTemplate x:Key="MoveThumbTemplate" TargetType="{x:Type s:MoveThumb}">
-    <Rectangle Fill="Transparent"/>
+    <Rectangle Fill="Transparent" Margin="-10"/>
   </ControlTemplate>
 
 </ResourceDictionary>

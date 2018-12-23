@@ -45,7 +45,16 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HouseEntry.xaml.cs">
+    <Compile Include="Entries\RiverEntry.xaml.cs">
+      <DependentUpon>RiverEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Entries\ParkEntry.xaml.cs">
+      <DependentUpon>ParkEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Entries\RoadEntry.xaml.cs">
+      <DependentUpon>RoadEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Entries\HouseEntry.xaml.cs">
       <DependentUpon>HouseEntry.xaml</DependentUpon>
     </Compile>
     <Compile Include="LayerEntry.xaml.cs">
@@ -57,7 +66,19 @@
     <Compile Include="Thumbs\RotateThumb.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="HouseEntry.xaml">
+    <Page Include="Entries\RiverEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Entries\ParkEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Entries\RoadEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Entries\HouseEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
