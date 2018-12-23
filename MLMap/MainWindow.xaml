@@ -30,10 +30,9 @@
         <Menu Margin="0,0,0,0" Height="24" VerticalAlignment="Top"  Grid.ColumnSpan="2" Grid.Column="0">
             <MenuItem Header="File" Height="24">
                 <MenuItem Header="Open" />
-                <MenuItem Header="Save" />
-                <MenuItem Header="Save As" />
+                <MenuItem Header="Save" Click="SaveFile"/>
                 <Separator />
-                <MenuItem Header="Export" Icon=""/>
+                <MenuItem Header="Export to picture" Icon=""/>
             </MenuItem>
         </Menu>
         <GroupBox Header="Layers" Grid.Column="1" Margin="0,24,-0.4,0">

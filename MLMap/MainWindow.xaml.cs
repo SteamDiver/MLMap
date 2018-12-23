@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -8,10 +10,12 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 using VisualEntries;
 
 namespace MLMap
@@ -75,6 +79,26 @@ namespace MLMap
                 LayersLb.Items.Remove(LayersLb.SelectedItem);
             }
             
+        }
+
+        private void SaveFile(object sender, RoutedEventArgs e)
+        {
+            var items = LayersLb.Items.Cast<LayerEntry>().ToList();
+            var sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() == true)
+            {
+                var file = sfd.FileName;
+                var content = "";
+                foreach (var entry in items)
+                {
+                    content += $"\r\n~{entry.LayerName}~\r\n";
+                    foreach (var control in entry.Children)
+                    {
+                        content += XamlWriter.Save(control) + "\r\n";
+                    }
+                }
+                File.AppendAllText(file, content);
+            }
         }
     }
 }

@@ -19,6 +19,7 @@ namespace VisualEntries
     /// <summary>
     /// Логика взаимодействия для LayerEntry.xaml
     /// </summary>
+    [Serializable]
     public partial class LayerEntry : UserControl
     {
         private bool _visible = true;
