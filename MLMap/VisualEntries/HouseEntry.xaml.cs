@@ -30,16 +30,16 @@ namespace VisualEntries
 
         void onDragDelta(object sender, DragDeltaEventArgs e)
         {
-            //Move the Thumb to the mouse position during the drag operation
+            var thumb = sender as Thumb;
             double yadjust = UserControl.Height + e.VerticalChange;
             double xadjust = UserControl.Width + e.HorizontalChange;
             if ((xadjust >= 0) && (yadjust >= 0))
             {
                 UserControl.Width = xadjust;
                 UserControl.Height = yadjust;
-                Canvas.SetLeft(myThumb, Canvas.GetLeft(myThumb) +
+                Canvas.SetLeft(thumb, Canvas.GetLeft(myThumb) +
                                         e.HorizontalChange);
-                Canvas.SetTop(myThumb, Canvas.GetTop(myThumb) +
+                Canvas.SetTop(thumb, Canvas.GetTop(myThumb) +
                                        e.VerticalChange);
             }
         }

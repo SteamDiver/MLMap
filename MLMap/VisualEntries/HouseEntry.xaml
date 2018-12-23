@@ -11,7 +11,7 @@
         <Label Grid.Column="0" FontSize="72" Content="TEST" Margin="129,0,10.2,-0.4"/>
         <Thumb Name="myThumb" Canvas.Left="80" Canvas.Top="80" Background="Blue" 
                Width="20" Height="20" DragDelta="onDragDelta" 
-               DragStarted="onDragStarted" DragCompleted="onDragCompleted" Grid.Column="1" Margin="0,0,10,9.6" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               DragStarted="onDragStarted" DragCompleted="onDragCompleted" Margin="0,0,-4.4,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"
         />
     </Grid>
 </UserControl>
