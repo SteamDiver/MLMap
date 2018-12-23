@@ -5,13 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:VisualEntries"
              mc:Ignorable="d" 
-             d:DesignHeight="450" Height="128" Width="389.406" x:Name="UserControl">
-    <Grid Background="Bisque">
-
-        <Label Grid.Column="0" FontSize="72" Content="TEST" Margin="129,0,10.2,-0.4"/>
-        <Thumb Name="myThumb" Canvas.Left="80" Canvas.Top="80" Background="Blue" 
-               Width="20" Height="20" DragDelta="onDragDelta" 
-               DragStarted="onDragStarted" DragCompleted="onDragCompleted" Margin="0,0,-4.4,0" HorizontalAlignment="Right" VerticalAlignment="Bottom"
-        />
-    </Grid>
+             x:Name="UserControl" Height="148.93" Width="150.522">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/DesignerItem.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Canvas>
+        <ContentControl Width="130"
+                      Height="130"
+                        Margin="10"
+                        Selector.IsSelected="True"
+                        Style="{StaticResource DesignerItemStyle}">
+            <Canvas Background="LightGray"
+                     IsHitTestVisible="False"/>
+        </ContentControl>
+    </Canvas>
 </UserControl>

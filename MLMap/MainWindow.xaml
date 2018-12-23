@@ -27,7 +27,6 @@
                 </Button>
             </StackPanel>
         </ToolBar>
-        <visualEntries:HouseEntry Grid.Column="0" Margin="67,122,76,108"></visualEntries:HouseEntry>
         <Menu Margin="0,0,0,0" Height="24" VerticalAlignment="Top"  Grid.ColumnSpan="2" Grid.Column="0">
             <MenuItem Header="File" Height="24">
                 <MenuItem Header="Open" />
@@ -48,6 +47,9 @@
                 <Button Content="Delete" Margin="0.2,0,-0.4,-0.4" Grid.Column="1" Height="24" VerticalAlignment="Bottom"/>
             </Grid>
         </GroupBox>
+        <Canvas Grid.Column="0" Margin="10,71,10,10">
+            <visualEntries:HouseEntry Canvas.Left="183" Canvas.Top="56" />
+        </Canvas>
 
     </Grid>
 </Window>
