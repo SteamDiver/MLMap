@@ -91,13 +91,51 @@ namespace MLMap
                 var content = "";
                 foreach (var entry in items)
                 {
-                    content += $"\r\n~{entry.LayerName}~\r\n";
+                    content += $"~{entry.LayerName}~\r\n";
                     foreach (var control in entry.Children)
                     {
-                        content += XamlWriter.Save(control) + "\r\n";
+                        content += $"{XamlWriter.Save(control)}\r\n";
                     }
                 }
-                File.AppendAllText(file, content);
+                File.WriteAllText(file, content);
+            }
+        }
+
+        private void OpenClick(object sender, RoutedEventArgs e)
+        {
+            var ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == true)
+            {
+                var file = File.ReadAllLines(ofd.FileName);
+                LayerEntry layerEntry = null;
+                foreach (var line in file)
+                {
+                    if (line.Contains("~"))
+                    {
+                        layerEntry = new LayerEntry(line.Replace("~", ""));
+                        LayersLb.Items.Add(layerEntry);
+                    }
+                    else
+                    {
+                        
+                        var element = XamlReader.Parse(line) as UserControl;
+                        if (element != null)
+                        {
+                            UserControl el = null;
+                            switch (element.GetType().Name)
+                            {
+                                case "RoadEntry":
+                                    el = new RoadEntry();
+                                    el.Width = element.Width;
+                                    el.Height = element.Height;
+                                    break;
+                            }
+                            //element.RenderTransformOrigin = new Point(0.5, 0.5);
+                            layerEntry?.Children.Add(el);
+                            ContentCanvas.Children.Add(el);
+                        }
+                    }
+                }
             }
         }
     }
