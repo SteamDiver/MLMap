@@ -13,12 +13,13 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-
-    <ContentControl Width="130"
+    <Canvas >
+        <ContentControl Width="130"
                       Height="20"
                         Selector.IsSelected="True"
                         Style="{StaticResource DesignerItemStyle}" >
-        <Canvas Background="DimGray"
+            <Canvas Background="DimGray"
                      IsHitTestVisible="False"/>
-    </ContentControl>
+        </ContentControl>
+    </Canvas>
 </UserControl>

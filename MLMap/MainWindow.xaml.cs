@@ -28,6 +28,7 @@ namespace MLMap
         public MainWindow()
         {
             InitializeComponent();
+            AddLayerBtnClick(null, null);
         }
 
         private void AddLayerBtnClick(object sender, RoutedEventArgs e)
@@ -39,10 +40,19 @@ namespace MLMap
         private void AddElement(UserControl element)
         {
             var layer = LayersLb.SelectedItem as LayerEntry;
+            if (LayersLb.Items.Count == 1)
+            {
+                layer = LayersLb.Items[0] as LayerEntry;
+            }
+
             if (layer != null)
             {
                 layer.Children.Add(element);
                 ContentCanvas.Children.Add(element);
+            }
+            else
+            {
+                MessageBox.Show("Необходимо выбрат слой");
             }
         }
 
@@ -103,6 +113,9 @@ namespace MLMap
 
         private void OpenClick(object sender, RoutedEventArgs e)
         {
+            LayersLb.Items.Clear();
+            ContentCanvas.Children.Clear();
+
             var ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == true)
             {
@@ -121,22 +134,30 @@ namespace MLMap
                         var element = XamlReader.Parse(line) as UserControl;
                         if (element != null)
                         {
-                            UserControl el = null;
-                            switch (element.GetType().Name)
-                            {
-                                case "RoadEntry":
-                                    el = new RoadEntry();
-                                    el.Width = element.Width;
-                                    el.Height = element.Height;
-                                    break;
-                            }
-                            //element.RenderTransformOrigin = new Point(0.5, 0.5);
-                            layerEntry?.Children.Add(el);
-                            ContentCanvas.Children.Add(el);
+                            layerEntry?.Children.Add(element);
+                            ContentCanvas.Children.Add(element);
                         }
                     }
                 }
             }
+        }
+
+        private void ExportPicture(object sender, RoutedEventArgs e)
+        {
+            RenderTargetBitmap bmp = new RenderTargetBitmap((int)ContentCanvas.ActualWidth,
+                (int)ContentCanvas.ActualHeight, 72, 72, PixelFormats.Pbgra32);
+            bmp.Render(ContentCanvas);
+            BitmapEncoder encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(bmp));
+
+            var sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() == true)
+            {
+                using (var fs = File.OpenWrite(sfd.FileName))
+                {
+                    encoder.Save(fs);
+                }
+            } 
         }
     }
 }
